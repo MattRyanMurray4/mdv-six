@@ -14,8 +14,14 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
+    "strictPropertyInitialization": false,
     "paths": {
-      "@animals/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@animals/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@animals/core-data": ["libs/core-data/src/index.ts"],
+      "@animals/core-state": ["libs/core-state/src/index.ts"],
+      "@animals/material": ["libs/material/src/index.ts"],
+      "@animals/theme": ["libs/theme/src/index.ts"],
+      "@animals/ui-library": ["libs/ui-library/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
