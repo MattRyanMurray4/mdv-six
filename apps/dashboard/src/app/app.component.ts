@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Message } from '@animals/api-interfaces';
 
 @Component({
   selector: 'animals-root',
@@ -8,6 +6,9 @@ import { Message } from '@animals/api-interfaces';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  hello$ = this.http.get<Message>('/api/hello');
-  constructor(private http: HttpClient) {}
+  title = 'Animal Kingdom';
+  links = [
+    { path: '/', icon: 'home', title: 'Login' },
+    { path: 'predators', icon: 'view_list', title: 'Predators-List' },
+  ];
 }

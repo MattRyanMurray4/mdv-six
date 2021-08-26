@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="col-50" layout="row" layout-align="center center">
+    <animals-predators-list
+      [predators]="predators$ | async"
+      (selected)="selectPredator($event)"
+      (deleted)="deletePredator($event)"
+    ></animals-predators-list>
+  </div>
+  <div class="col-50" layout="row" layout-align="center center">
+    <animals-predator-details
+      [form]="form"
+      [predator]="selectedPredator$ | async"
+      (saved)="savePredator($event)"
+      (cancelled)="cancel()"
+    ></animals-predator-details>
+  </div>
+</div>

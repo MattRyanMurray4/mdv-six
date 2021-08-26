@@ -5,8 +5,15 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { WildComponent } from './wild/wild.component';
 import { MaterialModule } from '@animals/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 @NgModule({
-  imports: [CommonModule, MaterialModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule,
+  ],
   declarations: [LoginComponent, ToolbarComponent, WildComponent],
   exports: [ToolbarComponent, WildComponent, LoginComponent],
 })

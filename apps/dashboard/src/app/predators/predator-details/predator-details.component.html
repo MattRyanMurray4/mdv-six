@@ -1,0 +1,81 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title *ngIf="currentPredator.id; else createNew">
+      <h1>{{ originalName }}</h1>
+    </mat-card-title>
+    <ng-template #createNew>
+      <h1>Log a New Predator</h1>
+    </ng-template>
+  </mat-card-header>
+  <form
+    [formGroup]="form"
+    #formDirective="ngForm"
+    (ngSubmit)="saveForm(formDirective)"
+  >
+    <mat-card-content>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          placeholder="Name"
+          formControlName="name"
+          type="text"
+          name="name"
+        />
+        <mat-error *ngIf="form.get('name')">Required Field</mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Genus</mat-label>
+        <input
+          matInput
+          placeholder="Genus"
+          formControlName="genesis"
+          type="text"
+          name="genesis"
+        />
+        <mat-error *ngIf="form.get('genesis')">Required Field</mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Biome</mat-label>
+        <input
+          matInput
+          placeholder="Biome"
+          formControlName="biome"
+          type="text"
+          name="biome"
+        />
+        <mat-error *ngIf="form.get('biome')">Required Field</mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Life Span</mat-label>
+        <input
+          matInput
+          placeholder="Life Span"
+          formControlName="lifeSpan"
+          type="text"
+          name="lifeSpan"
+        />
+        <mat-error *ngIf="form.get('lifeSpan')">Required Field</mat-error>
+      </mat-form-field>
+      <section class="full-width">
+        <mat-label>
+          Bite-Force: {{ form.get('biteForce')?.value }} /psi
+        </mat-label>
+        <mat-slider
+          formControlName="biteForce"
+          class="full-width"
+          min="0"
+          max="4000"
+          thumbLabel
+          tickInterval="10"
+        ></mat-slider>
+      </section>
+    </mat-card-content>
+    <mat-card-actions>
+      <button type="submit" mat-button [disabled]="form.invalid">
+        {{ currentPredator.id ? 'Update' : 'Submit' }}
+      </button>
+      <button type="button" mat-button (click)="cancel()">Cancel</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

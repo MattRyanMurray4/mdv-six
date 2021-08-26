@@ -9,7 +9,7 @@ export const BASE_URL = 'https://db-30x30.herokuapp.com/';
   providedIn: 'root',
 })
 export class PredatorsService {
-  private model = '';
+  private model = 'predators';
   constructor(private httpClient: HttpClient) {}
 
   all() {
